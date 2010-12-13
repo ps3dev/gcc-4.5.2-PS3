@@ -1919,6 +1919,15 @@ picochip-*)
 #	tmake_file="${tmake_file} rs6000/t-fprules rs6000/t-fprules-fpbit "
 #	extra_headers=
 #	;;
+powerpc64-*-lv2*)
+	tm_file="${tm_file} dbxelf.h elfos.h usegas.h svr4.h freebsd-spec.h rs6000/sysv4.h rs6000/default64.h"
+	tm_file="rs6000/biarch64.h ${tm_file} rs6000/cell64lv2.h"
+	if test x${enable_secureplt} = xyes; then
+		tm_file="rs6000/secureplt.h ${tm_file}"
+	fi
+	extra_options="${extra_options} rs6000/sysv4.opt"
+	tmake_file="rs6000/t-fprules rs6000/t-fprules-fpbit rs6000/t-ppcgas rs6000/t-ppccomm t-cell64lv2"
+	;;
 powerpc-*-darwin*)
 	extra_options="${extra_options} rs6000/darwin.opt"
 	extra_parts="crt2.o"

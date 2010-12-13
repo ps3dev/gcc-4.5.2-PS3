@@ -961,6 +961,10 @@ case $basic_machine in
 	ppc64le-* | powerpc64little-*)
 		basic_machine=powerpc64le-`echo $basic_machine | sed 's/^[^-]*-//'`
 		;;
+	ppu)
+		basic_machine=powerpc64-unknown
+		os=-lv2
+		;;
 	ps2)
 		basic_machine=i386-ibm
 		;;
@@ -1315,7 +1319,8 @@ case $os in
 	      | -os2* | -vos* | -palmos* | -uclinux* | -nucleus* \
 	      | -morphos* | -superux* | -rtmk* | -rtmk-nova* | -windiss* \
 	      | -powermax* | -dnix* | -nx6 | -nx7 | -sei* | -dragonfly* \
-	      | -skyos* | -haiku* | -rdos* | -toppers* | -drops* | -es*)
+	      | -skyos* | -haiku* | -rdos* | -toppers* | -drops* | -es* \
+	      | -lv2*)
 	# Remember, each alternative MUST END IN *, to match a version number.
 		;;
 	-qnx*)
