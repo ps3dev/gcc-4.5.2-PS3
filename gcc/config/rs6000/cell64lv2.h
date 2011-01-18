@@ -429,3 +429,5 @@ extern int dot_symbols;
 #define RS6000_DEFAULT_LONG_DOUBLE_SIZE 128
 #endif
 
+#define POWERPC_LINUX
+
