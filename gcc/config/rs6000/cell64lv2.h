@@ -247,6 +247,14 @@ extern int dot_symbols;
 #define BLOCK_REG_PADDING(MODE, TYPE, FIRST) \
   (!(FIRST) ? upward : FUNCTION_ARG_PADDING (MODE, TYPE))
 
+/* __throw will restore its own return address to be the same as the
+   return address of the function that the throw is being made to.
+   This is unfortunate, because we want to check the original
+   return address to see if we need to restore the TOC.
+   So we have to squirrel it away with this.  */
+#define SETUP_FRAME_ADDRESSES() \
+  do { if (TARGET_64BIT) rs6000_aix_emit_builtin_unwind_init (); } while (0)
+
 /* Override svr4.h  */
 #undef MD_EXEC_PREFIX
 #undef MD_STARTFILE_PREFIX
@@ -424,10 +432,10 @@ extern int dot_symbols;
 
 #define TARGET_ASM_FILE_END rs6000_elf_end_indicate_exec_stack
 
+#define POWERPC_LINUX
+
 /* ppc{32,64} linux has 128-bit long double support in glibc 2.4 and later.  */
 #ifdef TARGET_DEFAULT_LONG_DOUBLE_128
 #define RS6000_DEFAULT_LONG_DOUBLE_SIZE 128
 #endif
-
-#define POWERPC_LINUX
 
