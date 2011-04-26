@@ -1172,6 +1172,13 @@ static enum machine_mode rs6000_eh_return_filter_mode (void);
 static bool rs6000_can_eliminate (const int, const int);
 static void rs6000_trampoline_init (rtx, tree, rtx);
 
+
+#ifdef POWERPC_CELL64LV2
+
+static bool rs6000_cell64lv2_valid_pointer_mode(enum machine_mode);
+
+#endif
+
 /* Hash table stuff for keeping track of TOC entries.  */
 
 struct GTY(()) toc_hash_struct
@@ -1548,6 +1555,11 @@ static const struct attribute_spec rs6000_attribute_table[] =
 
 #undef TARGET_FUNCTION_VALUE
 #define TARGET_FUNCTION_VALUE rs6000_function_value
+
+#ifdef POWERPC_CELL64LV2
+#undef TARGET_VALID_POINTER_MODE
+#define TARGET_VALID_POINTER_MODE rs6000_cell64lv2_valid_pointer_mode
+#endif
 
 struct gcc_target targetm = TARGET_INITIALIZER;
 
@@ -25810,5 +25822,14 @@ rs6000_final_prescan_insn (rtx insn, rtx *operand ATTRIBUTE_UNUSED,
 		    temp, insn_data[INSN_CODE (insn)].name, INSN_UID (insn));
     }
 }
+
+
+#ifdef POWERPC_CELL64LV2
+
+static bool rs6000_cell64lv2_valid_pointer_mode(enum machine_mode mode)
+{
+     return mode == SImode || (TARGET_64BIT && mode == DImode) || mode == Pmode;
+}
+#endif
 
 #include "gt-rs6000.h"

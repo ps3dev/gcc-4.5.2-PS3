@@ -426,6 +426,8 @@ extern int dot_symbols;
 
 #define POWERPC_LINUX
 
+#define POWERPC_CELL64LV2
+
 /* ppc{32,64} linux has 128-bit long double support in glibc 2.4 and later.  */
 #ifdef TARGET_DEFAULT_LONG_DOUBLE_128
 #define RS6000_DEFAULT_LONG_DOUBLE_SIZE 128
