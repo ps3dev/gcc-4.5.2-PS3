@@ -25828,7 +25828,7 @@ rs6000_final_prescan_insn (rtx insn, rtx *operand ATTRIBUTE_UNUSED,
 
 static bool rs6000_cell64lv2_valid_pointer_mode(enum machine_mode mode)
 {
-     return mode == SImode || (TARGET_64BIT && mode == DImode) || mode == Pmode;
+     return (mode == SImode || (TARGET_64BIT && mode == DImode) || mode == ptr_mode || mode == Pmode);
 }
 #endif
 
