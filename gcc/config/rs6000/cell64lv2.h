@@ -292,7 +292,7 @@ extern int dot_symbols;
 #undef	LINK_OS_DEFAULT_SPEC
 #define LINK_OS_DEFAULT_SPEC "%(link_os_lv2)"
 
-#define LIB_LV2_SPEC "--start-group -lsysbase -lc --end-group" 
+#define LIB_LV2_SPEC "-L %:getenv(PSL1GHT /ppu/lib) --start-group -lsysbase -lc -lrt -llv2 --end-group"
 
 #define STARTFILE_LV2_SPEC "lv2-crti.o%s crtbegin.o%s lv2-crt0.o%s lv2-sprx.o%s"
 
