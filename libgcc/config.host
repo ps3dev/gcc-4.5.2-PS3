@@ -75,7 +75,7 @@ arm*-*-*)
 	;;
 avr-*-*)
 	cpu_type=avr
-	;;    
+	;;
 bfin*-*)
 	cpu_type=bfin
 	;;
@@ -366,7 +366,7 @@ lm32-*-elf*|lm32-*-rtems*)
 lm32-*-uclinux*)
         extra_parts="crtbegin.o crtend.o crtbeginS.o crtendS.o crtbeginT.o"
         tmake_file="lm32/t-lm32 lm32/t-uclinux t-softfp"
-	;;	
+	;;
 m32r-*-elf*|m32r-*-rtems*)
  	;;
 m32rle-*-elf*)
@@ -469,7 +469,7 @@ powerpc-*-eabi*)
 	;;
 powerpc-*-rtems*)
 	;;
-powerpc64-*-lv2*)
+powerpc64-ps3-elf)
 	;;
 powerpc-*-linux* | powerpc64-*-linux*)
 	tmake_file="${tmake_file} rs6000/t-ppccomm rs6000/t-ldbl128 t-softfp"
