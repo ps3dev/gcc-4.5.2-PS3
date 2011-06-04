@@ -428,7 +428,7 @@ extern int dot_symbols;
 
 #define POWERPC_CELL64LV2
 
-#define POINTERS_EXTEND_UNSIGNED 0
+#define POINTERS_EXTEND_UNSIGNED 1
 
 /* ppc{32,64} linux has 128-bit long double support in glibc 2.4 and later.  */
 #ifdef TARGET_DEFAULT_LONG_DOUBLE_128
